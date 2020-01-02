@@ -8,7 +8,7 @@ public class flock : MonoBehaviour
     float rotationSpeed = 4.0f;//This is how fast the fish will turn when they need to turn
     Vector3 averageHeading;//This is the average heading of the group
     Vector3 averagePosition;//This is the average position of the group
-    float neighbourDistance = 3.0f;//This is the maximum distance they need to be to flock if they are more than this they wont take notice of each other
+    float neighbourDistance = 4.0f;//This is the maximum distance they need to be to flock if they are more than this they wont take notice of each other
 
     bool turning = false;
 

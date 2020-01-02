@@ -133,12 +133,12 @@ GameObject:
   - component: {fileID: 373696691}
   - component: {fileID: 373696690}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: goalPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!135 &373696690
 SphereCollider:
   m_ObjectHideFlags: 0
