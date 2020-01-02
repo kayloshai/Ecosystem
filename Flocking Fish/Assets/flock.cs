@@ -9,16 +9,33 @@ public class flock : MonoBehaviour
     Vector3 averageHeading;//This is the average heading of the group
     Vector3 averagePosition;//This is the average position of the group
     float neighbourDistance = 3.0f;//This is the maximum distance they need to be to flock if they are more than this they wont take notice of each other
-    
+
+    bool turning = false;
+
     void Start()
     {
         speed = Random.Range(0.5f, 1);//Runs the algorithm 1 in 5 times randomly 
     }
     void Update()
     {
-        if(Random.Range(0, 5) < 1)
-            ApplyRules();
+        if (Vector3.Distance(transform.position, Vector3.zero) >= globalFlock.tankSize)
+            turning = true;
+        else
+            turning = false;
 
+        if (turning)
+        {
+            Vector3 direction = Vector3.zero - transform.position;
+            transform.rotation = Quaternion.Slerp(transform.rotation,
+                                     Quaternion.LookRotation(direction),
+                                     rotationSpeed * Time.deltaTime);
+            speed = Random.Range(0.5f, 1);
+        }
+        else
+        {
+            if (Random.Range(0, 5) < 1)
+                ApplyRules();
+        }
         transform.Translate(0, 0, Time.deltaTime * speed);
     }
 

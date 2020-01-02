@@ -6,9 +6,10 @@ public class globalFlock : MonoBehaviour
 {
     //prefab for fish
     public GameObject fishPrefab;
+    public GameObject goalPrefab;
     public int goalPosResetFrequency = 10000;
     public static int tankSize = 5; //public and static to be accessed outside the script
-    static int numberOfFish = 20;
+    static int numberOfFish = 10;
     public static GameObject[] allFish = new GameObject[numberOfFish];// made static to be accesible by other scripts
     public static Vector3 goalPos = Vector3.zero;
 
@@ -31,6 +32,7 @@ public class globalFlock : MonoBehaviour
             goalPos = new Vector3(Random.Range(-tankSize, tankSize),
                                   Random.Range(-tankSize, tankSize),
                                   Random.Range(-tankSize, tankSize));
+            goalPrefab.transform.position = goalPos;
         }
     }
 }
