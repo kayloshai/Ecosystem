@@ -7,14 +7,17 @@ public class globalFlock : MonoBehaviour
     //prefab for fish
     public GameObject fishPrefab;
     public GameObject goalPrefab;
-    public int goalPosResetFrequency = 10000;
+    public int goalPosResetFrequency = 10500;
     public static int tankSize = 5; //public and static to be accessed outside the script
-    static int numberOfFish = 10;
+    static int numberOfFish = 50;
     public static GameObject[] allFish = new GameObject[numberOfFish];// made static to be accesible by other scripts
     public static Vector3 goalPos = Vector3.zero;
 
     void Start()
     {
+        RenderSettings.fogColor = Camera.main.backgroundColor;
+        RenderSettings.fogDensity = 0.03f;
+        RenderSettings.fog = true;
         for(int i = 0; i <numberOfFish; i++)
         {
             Vector3 pos = new Vector3(Random.Range(-tankSize, tankSize),
